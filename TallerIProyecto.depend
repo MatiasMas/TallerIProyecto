@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1645066220 source:c:\users\matias mas\documents\codeblocks projects\talleriproyecto\main.cpp
+	"string.h"
+
+1645066341 source:c:\users\matias mas\documents\codeblocks projects\talleriproyecto\boolean.cpp
+	"boolean.h"
+
+1645066294 c:\users\matias mas\documents\codeblocks projects\talleriproyecto\boolean.h
+	<stdio.h>
+
+1645066386 c:\users\matias mas\documents\codeblocks projects\talleriproyecto\string.h
+	"boolean.h"
+
+1645066418 source:c:\users\matias mas\documents\codeblocks projects\talleriproyecto\string.cpp
+	"string.h"
+
+1645066498 source:c:\users\matias mas\documents\codeblocks projects\talleriproyecto\comando.cpp
+	"Comando.h"
+
+1645066461 c:\users\matias mas\documents\codeblocks projects\talleriproyecto\comando.h
+
+1645066562 source:c:\users\matias mas\documents\codeblocks projects\talleriproyecto\listastrings.cpp
+	"ListaStrings.h"
+
+1645066534 c:\users\matias mas\documents\codeblocks projects\talleriproyecto\listastrings.h
+	"string.h"
+

@@ -38,6 +38,7 @@ void printString(string s) {
         printf("%c", s[i]);
         i++;
     }
+    printf("\n");
 }
 
 //Copia el valor del string 2 en el string 1

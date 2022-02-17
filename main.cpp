@@ -1,4 +1,5 @@
 #include "string.h"
+#include "ListaStrings.h"
 
 int main() {
 //    Comienzo bloque de pruebas para extensionArchivoValido()
@@ -49,6 +50,70 @@ int main() {
 
 //    Fin bloque de pruebas para esAlfabetico()
 
+//    Comienzo bloque de pruebas para insbackListaStrings()
+
+//    string string1;
+//    string string2;
+//    string string3;
+//    ListaStrings listaStrings;
+//    crearString(string1);
+//    crearString(string2);
+//    crearString(string3);
+//    cargarString(string1);
+//    cargarString(string2);
+//    cargarString(string3);
+//    crearListaStrings(listaStrings);
+//
+//    insbackListaStrings(listaStrings, string1);
+//    insbackListaStrings(listaStrings, string2);
+//    insbackListaStrings(listaStrings, string3);
+//
+//    while (listaStrings != NULL){
+//        printString(listaStrings->info);
+//        listaStrings = listaStrings->Sig;
+//    }
+
+//    Fin bloque de pruebas para insbackListaStrings()
+
+//    Comienzo bloque de pruebas para largoLista()
+
+//    string string1;
+//    string string2;
+//    string string3;
+//    ListaStrings listaStrings;
+//    crearString(string1);
+//    crearString(string2);
+//    crearString(string3);
+//    cargarString(string1);
+//    cargarString(string2);
+//    cargarString(string3);
+//    crearListaStrings(listaStrings);
+//
+//    insbackListaStrings(listaStrings, string1);
+//    insbackListaStrings(listaStrings, string2);
+//    insbackListaStrings(listaStrings, string3);
+//
+//    int elementosDeListaStrings = largoLista(listaStrings);
+//    printf("\nLa cantidad de elementos en listaStrings es: %i", elementosDeListaStrings);
+
+//    Fin bloque de pruebas para largoLista()
+
+//    Comienzo bloque de pruebas para dividirString()
+
+//    string comandoIngresado;
+//    ListaStrings listaStrings;
+//    crearString(comandoIngresado);
+//    cargarString(comandoIngresado);
+//    crearListaStrings(listaStrings);
+//
+//    listaStrings = dividirString(comandoIngresado);
+//
+//    while (listaStrings != NULL){
+//        printString(listaStrings->info);
+//        listaStrings = listaStrings->Sig;
+//    }
+
+//    Fin bloque de pruebas para dividirString()
 
 }
 

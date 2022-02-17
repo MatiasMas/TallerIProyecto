@@ -24,19 +24,19 @@ void copiarString(string &s1, string s2);
 //Retorna longitud del string
 int stringLargo(string s);
 
-//Valida que la extensión del nombre de archivo pasado sea .txt
+//Valida que la extensiÃ³n del nombre de archivo pasado sea .txt
 boolean extensionArchivoValido(string nombreArchivo);
 
-//Valida que el nombre de archivo pasado sea alfabético
+//Valida que el nombre de archivo pasado sea alfabÃ©tico
 boolean nombreArchivoValido(string nombreArchivo);
 
-//Valida que el string pasado sea alfabético
+//Valida que el string pasado sea alfabÃ©tico
 boolean esAlfabetico(string s);
 
-//Escribe en el archivo los caracteres del string s (incluido '\0'), Precondición: El archivo debe venir abierto para escritura
+//Escribe en el archivo los caracteres del string s (incluido '\0'), PrecondiciÃ³n: El archivo debe venir abierto para escritura
 void bajarString(string s, FILE *f);
 
-//Lee desde el archivo los caracteres del string s, Precondición: El archivo debe venir abierto para lectura
+//Lee desde el archivo los caracteres del string s, PrecondiciÃ³n: El archivo debe venir abierto para lectura
 void levantarString(string &s, FILE *f);
 
 //Determina si ambos strings son iguales en contenido

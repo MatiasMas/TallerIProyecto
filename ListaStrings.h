@@ -13,11 +13,11 @@ typedef NodoString *ListaStrings;
 //Crea la lista de strings
 void crearListaStrings(ListaStrings &listaStrings);
 
-//Obtiene un elemento de la lista según el índice pasado
+//Obtiene un elemento de la lista segÃºn el Ã­ndice pasado
 void obtenerElementoListaPorIndice(ListaStrings listaStrings, int index, string &stringAux);
 
-//Divide en una lista de strings un string según los espacios
-ListaStrings dividirString(string s, ListaStrings &listaStrings);
+//Divide en una lista de strings un string segÃºn los espacios
+ListaStrings dividirString(string s);
 
 //Contabiliza la cantidad de elementos en lista
 int largoLista(ListaStrings listaStrings);

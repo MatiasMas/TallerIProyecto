@@ -17,29 +17,35 @@ void obtenerElementoListaPorIndice(ListaStrings listaStrings, int index, string 
 
 ListaStrings dividirString(string s) {
     boolean leyendoPalabra = FALSE;
-    int i = 0;
+    int i = 0, j = 0;
     string palabraAux;
     ListaStrings listaAux;
 
-    crearListaStrings(listaAux);
     crearString(palabraAux);
+    crearListaStrings(listaAux);
 
-    while (s[i] != '\0'){
-        if (s[i] == ' '){
-            if (leyendoPalabra){
+    while (s[i] != '\0') {
+        if (s[i] == ' ') {
+            if (leyendoPalabra) {
+                palabraAux[j] = '\0';
                 insbackListaStrings(listaAux, palabraAux);
-                i++;
-                palabraAux = NULL;
+                crearString(palabraAux);
                 leyendoPalabra = FALSE;
+                i++;
+                j = 0;
             }
         } else {
-            palabraAux[i] = s[i];
+            palabraAux[j] = s[i];
             i++;
-            if (!leyendoPalabra){
+            j++;
+            if (!leyendoPalabra) {
                 leyendoPalabra = TRUE;
             }
         }
     }
+
+    palabraAux[j] = '\0';
+    insbackListaStrings(listaAux, palabraAux);
 
     return listaAux;
 }

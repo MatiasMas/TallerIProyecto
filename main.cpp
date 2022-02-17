@@ -115,5 +115,24 @@ int main() {
 
 //    Fin bloque de pruebas para dividirString()
 
+//    Comienzo bloque de pruebas para obtenerElementoListaPorIndice()
+
+//    string comandoIngresado;
+//    string stringAux;
+//    ListaStrings listaStrings;
+//
+//    crearString(comandoIngresado);
+//    crearString(stringAux);
+//    cargarString(comandoIngresado);
+//    crearListaStrings(listaStrings);
+//
+//    listaStrings = dividirString(comandoIngresado);
+//
+//    obtenerElementoListaPorIndice(listaStrings, 5, stringAux);
+//
+//    printString(stringAux);
+
+//    Fin bloque de pruebas para obtenerElementoListaPorIndice()
+
 }
 

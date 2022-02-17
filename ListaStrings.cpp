@@ -7,12 +7,16 @@ void crearListaStrings(ListaStrings &listaStrings) {
 void obtenerElementoListaPorIndice(ListaStrings listaStrings, int index, string &stringAux) {
     int indexAux = 0;
 
-    while (indexAux <= index) {
-        listaStrings = listaStrings->Sig;
-        indexAux++;
-    }
+    if(index < largoLista(listaStrings)){
+        while (indexAux < index) {
+            listaStrings = listaStrings->Sig;
+            indexAux++;
+        }
 
-    stringAux = listaStrings->info;
+        stringAux = listaStrings->info;
+    } else {
+        printf("El indice esta fuera de rango.");
+    }
 }
 
 ListaStrings dividirString(string s) {

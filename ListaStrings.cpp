@@ -37,6 +37,8 @@ ListaStrings dividirString(string s) {
                 leyendoPalabra = FALSE;
                 i++;
                 j = 0;
+            } else {
+                i++;
             }
         } else {
             palabraAux[j] = s[i];

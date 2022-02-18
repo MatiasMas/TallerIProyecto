@@ -5,7 +5,7 @@
 
 typedef struct nodoS {
     string info;
-    nodoS *Sig;
+    nodoS *sig;
 } NodoString;
 
 typedef NodoString *ListaStrings;

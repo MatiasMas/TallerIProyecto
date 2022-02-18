@@ -9,7 +9,7 @@ void obtenerElementoListaPorIndice(ListaStrings listaStrings, int index, string 
 
     if(index < largoLista(listaStrings)){
         while (indexAux < index) {
-            listaStrings = listaStrings->Sig;
+            listaStrings = listaStrings->sig;
             indexAux++;
         }
 
@@ -61,7 +61,7 @@ int largoLista(ListaStrings listaStrings) {
 
     while (listaStrings != NULL) {
         contador++;
-        listaStrings = listaStrings->Sig;
+        listaStrings = listaStrings->sig;
     }
 
     return contador;
@@ -70,16 +70,16 @@ int largoLista(ListaStrings listaStrings) {
 void insbackListaStrings(ListaStrings &listaStrings, string s) {
     ListaStrings nuevo = new NodoString;
     nuevo->info = s;
-    nuevo->Sig = NULL;
+    nuevo->sig = NULL;
 
     if (listaStrings == NULL) {
         listaStrings = nuevo;
     } else {
         ListaStrings aux = listaStrings;
-        while (aux->Sig != NULL) {
-            aux = aux->Sig;
+        while (aux->sig != NULL) {
+            aux = aux->sig;
         }
 
-        aux->Sig = nuevo;
+        aux->sig = nuevo;
     }
 }

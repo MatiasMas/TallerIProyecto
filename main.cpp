@@ -1,8 +1,48 @@
 #include "string.h"
 #include "ListaStrings.h"
 #include "ListaEnteros.h"
+#include "Secuencia.h"
+#include "ABBSecuencias.h"
 
 int main() {
+    ABBSecuencias abbSecuencias;
+    Secuencia secuenciaAux1, secuenciaAux2;
+    ListaEnteros listaEnteros1, listaEnteros2;
+    string stringAux1, stringAux2;
+
+    crearArbol(abbSecuencias);
+    crearListaEnteros(listaEnteros1);
+    crearListaEnteros(listaEnteros2);
+    crearString(stringAux1);
+    crearString(stringAux2);
+
+    stringAux1[0] = 'S';
+    stringAux1[1] = '1';
+    stringAux1[2] = '\0';
+    stringAux2[0] = 'S';
+    stringAux2[1] = '2';
+    stringAux2[2] = '\0';
+    crearSecuencia(secuenciaAux1, stringAux1);
+    crearSecuencia(secuenciaAux2, stringAux2);
+
+    insbackListaEnteros(listaEnteros1, 1);
+    insbackListaEnteros(listaEnteros1, 13);
+    insbackListaEnteros(listaEnteros1, 2);
+    insbackListaEnteros(listaEnteros1, 54);
+    insbackListaEnteros(listaEnteros1, 90);
+    insbackListaEnteros(listaEnteros2, 56);
+    insbackListaEnteros(listaEnteros2, 3);
+    insbackListaEnteros(listaEnteros2, 25);
+    insbackListaEnteros(listaEnteros2, 8);
+    insbackListaEnteros(listaEnteros2, 100);
+
+    secuenciaAux1.listaEnteros = listaEnteros1;
+    secuenciaAux2.listaEnteros = listaEnteros2;
+
+    insertarSecuencia(abbSecuencias, secuenciaAux1);
+    insertarSecuencia(abbSecuencias, secuenciaAux2);
+
+    listarSecuencias(abbSecuencias);
 //    Comienzo bloque de pruebas para extensionArchivoValido()
 
 //    string nombreArchivo;
@@ -119,19 +159,19 @@ int main() {
 //    Comienzo bloque de pruebas para obtenerElementoListaPorIndice()
 
 //    string comandoIngresado;
-//    string stringAux;
+//    string stringAux1;
 //    ListaStrings listaStrings;
 //
 //    crearString(comandoIngresado);
-//    crearString(stringAux);
+//    crearString(stringAux1);
 //    cargarString(comandoIngresado);
 //    crearListaStrings(listaStrings);
 //
 //    listaStrings = dividirString(comandoIngresado);
 //
-//    obtenerElementoListaPorIndice(listaStrings, 5, stringAux);
+//    obtenerElementoListaPorIndice(listaStrings, 5, stringAux1);
 //
-//    printString(stringAux);
+//    printString(stringAux1);
 
 //    Fin bloque de pruebas para obtenerElementoListaPorIndice()
 
@@ -182,7 +222,7 @@ int main() {
 
 //    Fin bloque de pruebas para invertirLista()
 
-//    Comienzo bloque de pruebas para suamarLista()
+//    Comienzo bloque de pruebas para sumarLista()
 
 //    ListaEnteros listaA;
 //
@@ -224,5 +264,152 @@ int main() {
 //    listarEnteros(listaConcatenada);
 
 //    Fin bloque de pruebas para invertirLista()
+
+//    Comienzo bloque de pruebas para crearSecuencia(), mostrarSecuencia()
+
+//    Secuencia secuenciaB;
+//    string stringAux1;
+//
+//    crearString(stringAux1);
+//    cargarString(stringAux1);
+//    printString(stringAux1);
+//    crearSecuencia(secuenciaB, stringAux1);
+//
+//    mostrarSecuencia(secuenciaB);
+
+//    Fin bloque de pruebas para crearSecuencia(), mostrarSecuencia()
+
+//    Comienzo bloque de pruebas para stringMenor()
+
+//    string stringA;
+//    string stringB;
+//
+//    crearString(stringA);
+//    crearString(stringB);
+//    cargarString(stringA);
+//    cargarString(stringB);
+//    printString(stringA);
+//    printString(stringB);
+//
+//    if (stringMenor(stringA, stringB)) {
+//        printf("El string A es menor.");
+//    } else {
+//        printf("El string B es menor.");
+//    }
+
+//    Fin bloque de pruebas para stringMenor()
+
+//    Comienzo bloque de pruebas para insertarSecuencia(), listarSecuencias()
+
+//    ABBSecuencias abbSecuencias;
+//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
+//    string stringAux1, stringAux2, stringAux3, stringAux4;
+//
+//    crearString(stringAux1);
+//    cargarString(stringAux1);
+//    crearString(stringAux2);
+//    cargarString(stringAux2);
+//    crearString(stringAux3);
+//    cargarString(stringAux3);
+//    crearString(stringAux4);
+//    cargarString(stringAux4);
+//    crearSecuencia(secuenciaA, stringAux1);
+//    crearSecuencia(secuenciaB, stringAux2);
+//    crearSecuencia(secuenciaC, stringAux3);
+//    crearSecuencia(secuenciaD, stringAux4);
+//
+//    crearArbol(abbSecuencias);
+//
+//    insertarSecuencia(abbSecuencias, secuenciaD);
+//    insertarSecuencia(abbSecuencias, secuenciaA);
+//    insertarSecuencia(abbSecuencias, secuenciaC);
+//    insertarSecuencia(abbSecuencias, secuenciaB);
+//    listarSecuencias(abbSecuencias);
+
+//    Fin bloque de pruebas para insertarSecuencia(), listarSecuencias()
+
+//    Comienzo bloque de pruebas para existeSecuencia()
+
+//    ABBSecuencias abbSecuencias;
+//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
+//    string stringAux1, stringAux2, stringAux3, stringAux4, stringBusqueda;
+//
+//    crearString(stringBusqueda);
+//    cargarString(stringBusqueda);
+//
+//    crearString(stringAux1);
+//    cargarString(stringAux1);
+//    crearString(stringAux2);
+//    cargarString(stringAux2);
+//    crearString(stringAux3);
+//    cargarString(stringAux3);
+//    crearString(stringAux4);
+//    cargarString(stringAux4);
+//    crearSecuencia(secuenciaA, stringAux1);
+//    crearSecuencia(secuenciaB, stringAux2);
+//    crearSecuencia(secuenciaC, stringAux3);
+//    crearSecuencia(secuenciaD, stringAux4);
+//
+//    crearArbol(abbSecuencias);
+//
+//    insertarSecuencia(abbSecuencias, secuenciaD);
+//    insertarSecuencia(abbSecuencias, secuenciaA);
+//    insertarSecuencia(abbSecuencias, secuenciaC);
+//    insertarSecuencia(abbSecuencias, secuenciaB);
+//
+//    listarSecuencias(abbSecuencias);
+//
+//    if (existeSecuencia(abbSecuencias, stringBusqueda)) {
+//        printf("La secuencia existe en el arbol.");
+//    } else {
+//        printf("La secuencia no existe en el arbol.");
+//    }
+
+//    Fin bloque de pruebas para existeSecuencia()
+
+//    Comienzo bloque de pruebas para buscarSecuenciaPorIdentificador()
+
+//    ABBSecuencias abbSecuencias;
+//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
+//    string stringAux1, stringAux2, stringAux3, stringAux4, stringBusqueda;
+//    ListaEnteros listaEnteros1;
+//    crearListaEnteros(listaEnteros1);
+//
+//    crearString(stringBusqueda);
+//    cargarString(stringBusqueda);
+//
+//    crearString(stringAux1);
+//    cargarString(stringAux1);
+//    crearString(stringAux2);
+//    cargarString(stringAux2);
+//    crearString(stringAux3);
+//    cargarString(stringAux3);
+//    crearString(stringAux4);
+//    cargarString(stringAux4);
+//    crearSecuencia(secuenciaA, stringAux1);
+//    crearSecuencia(secuenciaB, stringAux2);
+//    crearSecuencia(secuenciaC, stringAux3);
+//    crearSecuencia(secuenciaD, stringAux4);
+//
+//    crearArbol(abbSecuencias);
+//
+//    insbackListaEnteros(listaEnteros1, 1);
+//    insbackListaEnteros(listaEnteros1, 13);
+//    insbackListaEnteros(listaEnteros1, 2);
+//    insbackListaEnteros(listaEnteros1, 54);
+//    insbackListaEnteros(listaEnteros1, 90);
+//
+//    secuenciaA.listaEnteros1 = listaEnteros1;
+//
+//    insertarSecuencia(abbSecuencias, secuenciaD);
+//    insertarSecuencia(abbSecuencias, secuenciaA);
+//    insertarSecuencia(abbSecuencias, secuenciaC);
+//    insertarSecuencia(abbSecuencias, secuenciaB);
+//
+//    Secuencia secuenciaAux1 = buscarSecuenciaPorIdentificador(abbSecuencias, stringBusqueda);
+//
+//    mostrarSecuencia(secuenciaAux1);
+
+//    Fin bloque de pruebas para buscarSecuenciaPorIdentificador()
 
 }

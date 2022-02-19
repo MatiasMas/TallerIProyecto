@@ -38,7 +38,7 @@ void printString(string s) {
         printf("%c", s[i]);
         i++;
     }
-    printf("\n");
+    printf(" ");
 }
 
 //Copia el valor del string 2 en el string 1
@@ -189,4 +189,26 @@ void levantarString(string &s, FILE *f) {
 
     copiarString(s, aux);
     delete[] aux;
+}
+
+boolean stringMenor(string s1, string s2) {
+    int i = 0;
+    boolean encontre = FALSE;
+    boolean menor = FALSE;
+
+    while ((!encontre) && (s1[i] != '\0') && (s2[i] != '\0')) {
+        if (s1[i] != s2[i]) {
+            encontre = TRUE;
+        }
+        if (s1[i] < s2[i]) {
+            menor = TRUE;
+        }
+        i++;
+    }
+
+    if ((!encontre) && (s2[i] != '\0')) {
+        menor = TRUE;
+    }
+
+    return menor;
 }

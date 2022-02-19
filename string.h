@@ -45,4 +45,7 @@ boolean stringIguales(string s1, string s2);
 //Carga un string con los caracteres .txt
 void cargarStringExtensionArchivo(string &s);
 
+//Determina si el string 1 es alfabeticamente menor que el string 2
+boolean stringMenor(string s1, string s2);
+
 #endif // STRING_H_INCLUDED

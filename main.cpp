@@ -1,5 +1,6 @@
 #include "string.h"
 #include "ListaStrings.h"
+#include "ListaEnteros.h"
 
 int main() {
 //    Comienzo bloque de pruebas para extensionArchivoValido()
@@ -134,5 +135,94 @@ int main() {
 
 //    Fin bloque de pruebas para obtenerElementoListaPorIndice()
 
-}
+//    Comienzo bloque de pruebas para crearListaEnteros(), esListaEnterosVacia(), insbackListaEnteros()
 
+//    ListaEnteros listaA;
+//
+//    crearListaEnteros(listaA);
+//
+//    if (esListaEnterosVacia(listaA)){
+//        printf("Lista de enteros vacia\n");
+//    } else {
+//        printf("La lista no esta vacia\n");
+//    }
+//
+//    insbackListaEnteros(listaA, 5);
+//    insbackListaEnteros(listaA, 1);
+//    insbackListaEnteros(listaA, 3);
+//    insbackListaEnteros(listaA, 50);
+//    insbackListaEnteros(listaA, 120);
+//
+//    if (esListaEnterosVacia(listaA)){
+//        printf("Lista de enteros vacia");
+//    } else {
+//        printf("La lista no esta vacia");
+//    }
+//
+//    listarEnteros(listaA);
+
+//    Fin bloque de pruebas para crearListaEnteros(), esListaEnterosVacia(), insbackListaEnteros()
+
+//    Comienzo bloque de pruebas para invertirLista()
+
+//    ListaEnteros listaA, listaInvertida;
+//
+//    crearListaEnteros(listaA);
+//    crearListaEnteros(listaInvertida);
+//
+//    insbackListaEnteros(listaA, 5);
+//    insbackListaEnteros(listaA, 1);
+//    insbackListaEnteros(listaA, 3);
+//    insbackListaEnteros(listaA, 50);
+//    insbackListaEnteros(listaA, 120);
+//
+//    invertirLista(listaA, listaInvertida);
+//
+//    listarEnteros(listaInvertida);
+
+//    Fin bloque de pruebas para invertirLista()
+
+//    Comienzo bloque de pruebas para suamarLista()
+
+//    ListaEnteros listaA;
+//
+//    crearListaEnteros(listaA);
+//
+//    insbackListaEnteros(listaA, 5);
+//    insbackListaEnteros(listaA, 1);
+//    insbackListaEnteros(listaA, 3);
+//    insbackListaEnteros(listaA, 50);
+//    insbackListaEnteros(listaA, 120);
+//
+//    int total = sumarListaEnteros(listaA);
+//
+//    printf("El total es: %i \n", total);
+
+//    Fin bloque de pruebas para sumarLista()
+
+//    Comienzo bloque de pruebas para invertirLista()
+
+//    ListaEnteros listaA, listaB, listaConcatenada;
+//
+//    crearListaEnteros(listaA);
+//    crearListaEnteros(listaB);
+//    crearListaEnteros(listaConcatenada);
+//
+//    insbackListaEnteros(listaA, 5);
+//    insbackListaEnteros(listaA, 1);
+//    insbackListaEnteros(listaA, 3);
+//    insbackListaEnteros(listaA, 50);
+//    insbackListaEnteros(listaA, 120);
+//    insbackListaEnteros(listaB, 453);
+//    insbackListaEnteros(listaB, 5);
+//    insbackListaEnteros(listaB, 9);
+//    insbackListaEnteros(listaB, 8);
+//    insbackListaEnteros(listaB, 908);
+//
+//    concatenarSecuencia(listaA, listaB, listaConcatenada);
+//
+//    listarEnteros(listaConcatenada);
+
+//    Fin bloque de pruebas para invertirLista()
+
+}

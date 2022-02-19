@@ -54,8 +54,6 @@ void invertirLista(ListaEnteros listaEnteros, ListaEnteros &nuevaLista) {
     int indexAux = 0;
     ListaEnteros listaAux = listaEnteros;
 
-    crearListaEnteros(listaAux);
-
     while (index != 0) {
         while (indexAux != index) {
             listaAux = listaAux->sig;
@@ -67,6 +65,8 @@ void invertirLista(ListaEnteros listaEnteros, ListaEnteros &nuevaLista) {
         indexAux = 0;
         index--;
     }
+
+    insbackListaEnteros(nuevaLista, listaAux->info);
 }
 
 int largoListaEnteros(ListaEnteros listaEnteros) {

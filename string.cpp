@@ -212,3 +212,24 @@ boolean stringMenor(string s1, string s2) {
 
     return menor;
 }
+
+int parseInt(string s) {
+    int valor = atoi(s);
+
+    return valor;
+}
+
+boolean esNumeroNatural(string s) {
+    int index = 0;
+    boolean valido = TRUE;
+
+    while (s[index] != '\0' && valido == TRUE){
+        if(s[index] < 48 || s[index] > 57){
+            valido = FALSE;
+        } else {
+            index++;
+        }
+    }
+
+    return valido;
+}

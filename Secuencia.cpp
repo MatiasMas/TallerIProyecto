@@ -4,10 +4,11 @@ boolean existeArchivo(string nombreArchivo) {
     return TRUE;
 }
 
-void crearSecuencia(Secuencia &secuencia, string identificador) {
+void crearSecuencia(Secuencia &secuencia, string identificador, ListaEnteros listaEnteros) {
     crearListaEnteros(secuencia.listaEnteros);
     crearString(secuencia.identificador);
     secuencia.identificador = identificador;
+    secuencia.listaEnteros = listaEnteros;
 }
 
 

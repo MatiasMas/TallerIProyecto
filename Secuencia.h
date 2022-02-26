@@ -13,7 +13,7 @@ typedef struct {
 boolean existeArchivo (string nombreArchivo);
 
 //Crea la secuencia en vacío
-void crearSecuencia(Secuencia &secuencia, string identificador);
+void crearSecuencia(Secuencia &secuencia, string identificador, ListaEnteros listaEnteros);
 
 //Muestra nombre de secuencia seguido de todos los elementos de su lista de enteros
 void mostrarSecuencia(Secuencia secuencia);

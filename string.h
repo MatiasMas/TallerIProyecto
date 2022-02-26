@@ -2,6 +2,7 @@
 #define STRING_H_INCLUDED
 
 #include "boolean.h"
+#include <cstdlib>
 
 const int MAX=80;
 typedef char * string;
@@ -47,5 +48,11 @@ void cargarStringExtensionArchivo(string &s);
 
 //Determina si el string 1 es alfabeticamente menor que el string 2
 boolean stringMenor(string s1, string s2);
+
+//Recibe un string, lo parsea a integer
+int parseInt(string s);
+
+//Retorna verdadero o falso en funcion de si es un numero natural o no
+boolean esNumeroNatural(string s);
 
 #endif // STRING_H_INCLUDED

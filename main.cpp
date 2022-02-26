@@ -1,415 +1,65 @@
-#include "string.h"
-#include "ListaStrings.h"
-#include "ListaEnteros.h"
-#include "Secuencia.h"
-#include "ABBSecuencias.h"
+#include "ControlErrores.h"
 
 int main() {
+    ListaStrings listaStrings;
     ABBSecuencias abbSecuencias;
-    Secuencia secuenciaAux1, secuenciaAux2;
-    ListaEnteros listaEnteros1, listaEnteros2;
+    ListaEnteros listaEnteros;
     string stringAux1, stringAux2;
+    Secuencia secuenciaAux;
+    Comando comando;
+    boolean valido = FALSE;
 
+    crearListaStrings(listaStrings);
     crearArbol(abbSecuencias);
-    crearListaEnteros(listaEnteros1);
-    crearListaEnteros(listaEnteros2);
+    crearListaEnteros(secuenciaAux.listaEnteros);
     crearString(stringAux1);
-    crearString(stringAux2);
 
-    stringAux1[0] = 'S';
-    stringAux1[1] = '1';
-    stringAux1[2] = '\0';
-    stringAux2[0] = 'S';
-    stringAux2[1] = '2';
-    stringAux2[2] = '\0';
-    crearSecuencia(secuenciaAux1, stringAux1);
-    crearSecuencia(secuenciaAux2, stringAux2);
+    do {
+        stringAux1 = NULL;
+        stringAux2 = NULL;
+        secuenciaAux.identificador = NULL;
+        secuenciaAux.listaEnteros = NULL;
 
-    insbackListaEnteros(listaEnteros1, 1);
-    insbackListaEnteros(listaEnteros1, 13);
-    insbackListaEnteros(listaEnteros1, 2);
-    insbackListaEnteros(listaEnteros1, 54);
-    insbackListaEnteros(listaEnteros1, 90);
-    insbackListaEnteros(listaEnteros2, 56);
-    insbackListaEnteros(listaEnteros2, 3);
-    insbackListaEnteros(listaEnteros2, 25);
-    insbackListaEnteros(listaEnteros2, 8);
-    insbackListaEnteros(listaEnteros2, 100);
+        printf("Ingrese un comando con sus respectivos parametros en caso de necesitarlos.\n");
+        fflush(stdin);
+        cargarString(stringAux1);
 
-    secuenciaAux1.listaEnteros = listaEnteros1;
-    secuenciaAux2.listaEnteros = listaEnteros2;
+        listaStrings = dividirString(stringAux1);
 
-    insertarSecuencia(abbSecuencias, secuenciaAux1);
-    insertarSecuencia(abbSecuencias, secuenciaAux2);
+        if (listaStrings == NULL) {
+            printf("\nNo se han ingresado comandos validos.\n");
+        } else {
+            obtenerElementoListaPorIndice(listaStrings, 0, stringAux1);
+            if (stringIguales(stringAux1, "create")) {
+                comando = CREATE;
+                if (validarComando(comando, listaStrings, abbSecuencias)) {
+                    obtenerElementoListaPorIndice(listaStrings, 1, stringAux1);
+                    crearSecuencia(secuenciaAux, stringAux1, secuenciaAux.listaEnteros);
+                    insertarSecuencia(abbSecuencias, secuenciaAux);
+                    printf("\nEsta es la secuencia ingresada:\n");
+                    mostrarSecuencia(secuenciaAux);
+                    printf("\nEste es el arbol: \n");
+                    listarSecuencias(abbSecuencias);
 
-    listarSecuencias(abbSecuencias);
-//    Comienzo bloque de pruebas para extensionArchivoValido()
+                    stringAux1 = NULL;
+                }
 
-//    string nombreArchivo;
-//    crearString(nombreArchivo);
-//    cargarString(nombreArchivo);
-//
-//    printString(nombreArchivo);
-//
-//    if(extensionArchivoValido(nombreArchivo)){
-//        printf("\nExtension archivo valido.");
-//    } else {
-//        printf("\nExtension archivo invalido.");
-//    }
+            } else {
+                if (stringIguales(stringAux1, "insback")) {
 
-//    Fin bloque de pruebas para extensionArchivoValido()
+                    comando = INSBACK;
+                    if (validarComando(comando, listaStrings, abbSecuencias)) {
+                        obtenerElementoListaPorIndice(listaStrings, 1, stringAux1);
+                        obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
 
-//    Comienzo bloque de pruebas para nombreArchivoValido()
+                        secuenciaAux = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux1);
+                        insbackListaEnteros(secuenciaAux.listaEnteros, (int)stringAux2);
+                        mostrarSecuencia(secuenciaAux);
+                    }
+                }
+            }
 
-//    string nombreArchivo;
-//    crearString(nombreArchivo);
-//    cargarString(nombreArchivo);
-//
-//    printString(nombreArchivo);
-//
-//    if(nombreArchivoValido(nombreArchivo)){
-//        printf("\nNombre archivo valido.");
-//    } else {
-//        printf("\nNombre archivo invalido.");
-//    }
 
-//    Fin bloque de pruebas para nombreArchivoValido()
-
-//    Comienzo bloque de pruebas para esAlfabetico()
-
-//    string nombreArchivo;
-//    crearString(nombreArchivo);
-//    cargarString(nombreArchivo);
-//
-//    printString(nombreArchivo);
-//
-//    if(esAlfabetico(nombreArchivo)){
-//        printf("\nEs alfabetico.");
-//    } else {
-//        printf("\nNo es alfabetico.");
-//    }
-
-//    Fin bloque de pruebas para esAlfabetico()
-
-//    Comienzo bloque de pruebas para insbackListaStrings()
-
-//    string string1;
-//    string string2;
-//    string string3;
-//    ListaStrings listaStrings;
-//    crearString(string1);
-//    crearString(string2);
-//    crearString(string3);
-//    cargarString(string1);
-//    cargarString(string2);
-//    cargarString(string3);
-//    crearListaStrings(listaStrings);
-//
-//    insbackListaStrings(listaStrings, string1);
-//    insbackListaStrings(listaStrings, string2);
-//    insbackListaStrings(listaStrings, string3);
-//
-//    while (listaStrings != NULL){
-//        printString(listaStrings->info);
-//        listaStrings = listaStrings->Sig;
-//    }
-
-//    Fin bloque de pruebas para insbackListaStrings()
-
-//    Comienzo bloque de pruebas para largoLista()
-
-//    string string1;
-//    string string2;
-//    string string3;
-//    ListaStrings listaStrings;
-//    crearString(string1);
-//    crearString(string2);
-//    crearString(string3);
-//    cargarString(string1);
-//    cargarString(string2);
-//    cargarString(string3);
-//    crearListaStrings(listaStrings);
-//
-//    insbackListaStrings(listaStrings, string1);
-//    insbackListaStrings(listaStrings, string2);
-//    insbackListaStrings(listaStrings, string3);
-//
-//    int elementosDeListaStrings = largoLista(listaStrings);
-//    printf("\nLa cantidad de elementos en listaStrings es: %i", elementosDeListaStrings);
-
-//    Fin bloque de pruebas para largoLista()
-
-//    Comienzo bloque de pruebas para dividirString()
-
-//    string comandoIngresado;
-//    ListaStrings listaStrings;
-//    crearString(comandoIngresado);
-//    cargarString(comandoIngresado);
-//    crearListaStrings(listaStrings);
-//
-//    listaStrings = dividirString(comandoIngresado);
-//
-//    while (listaStrings != NULL){
-//        printString(listaStrings->info);
-//        listaStrings = listaStrings->Sig;
-//    }
-
-//    Fin bloque de pruebas para dividirString()
-
-//    Comienzo bloque de pruebas para obtenerElementoListaPorIndice()
-
-//    string comandoIngresado;
-//    string stringAux1;
-//    ListaStrings listaStrings;
-//
-//    crearString(comandoIngresado);
-//    crearString(stringAux1);
-//    cargarString(comandoIngresado);
-//    crearListaStrings(listaStrings);
-//
-//    listaStrings = dividirString(comandoIngresado);
-//
-//    obtenerElementoListaPorIndice(listaStrings, 5, stringAux1);
-//
-//    printString(stringAux1);
-
-//    Fin bloque de pruebas para obtenerElementoListaPorIndice()
-
-//    Comienzo bloque de pruebas para crearListaEnteros(), esListaEnterosVacia(), insbackListaEnteros()
-
-//    ListaEnteros listaA;
-//
-//    crearListaEnteros(listaA);
-//
-//    if (esListaEnterosVacia(listaA)){
-//        printf("Lista de enteros vacia\n");
-//    } else {
-//        printf("La lista no esta vacia\n");
-//    }
-//
-//    insbackListaEnteros(listaA, 5);
-//    insbackListaEnteros(listaA, 1);
-//    insbackListaEnteros(listaA, 3);
-//    insbackListaEnteros(listaA, 50);
-//    insbackListaEnteros(listaA, 120);
-//
-//    if (esListaEnterosVacia(listaA)){
-//        printf("Lista de enteros vacia");
-//    } else {
-//        printf("La lista no esta vacia");
-//    }
-//
-//    listarEnteros(listaA);
-
-//    Fin bloque de pruebas para crearListaEnteros(), esListaEnterosVacia(), insbackListaEnteros()
-
-//    Comienzo bloque de pruebas para invertirLista()
-
-//    ListaEnteros listaA, listaInvertida;
-//
-//    crearListaEnteros(listaA);
-//    crearListaEnteros(listaInvertida);
-//
-//    insbackListaEnteros(listaA, 5);
-//    insbackListaEnteros(listaA, 1);
-//    insbackListaEnteros(listaA, 3);
-//    insbackListaEnteros(listaA, 50);
-//    insbackListaEnteros(listaA, 120);
-//
-//    invertirLista(listaA, listaInvertida);
-//
-//    listarEnteros(listaInvertida);
-
-//    Fin bloque de pruebas para invertirLista()
-
-//    Comienzo bloque de pruebas para sumarLista()
-
-//    ListaEnteros listaA;
-//
-//    crearListaEnteros(listaA);
-//
-//    insbackListaEnteros(listaA, 5);
-//    insbackListaEnteros(listaA, 1);
-//    insbackListaEnteros(listaA, 3);
-//    insbackListaEnteros(listaA, 50);
-//    insbackListaEnteros(listaA, 120);
-//
-//    int total = sumarListaEnteros(listaA);
-//
-//    printf("El total es: %i \n", total);
-
-//    Fin bloque de pruebas para sumarLista()
-
-//    Comienzo bloque de pruebas para invertirLista()
-
-//    ListaEnteros listaA, listaB, listaConcatenada;
-//
-//    crearListaEnteros(listaA);
-//    crearListaEnteros(listaB);
-//    crearListaEnteros(listaConcatenada);
-//
-//    insbackListaEnteros(listaA, 5);
-//    insbackListaEnteros(listaA, 1);
-//    insbackListaEnteros(listaA, 3);
-//    insbackListaEnteros(listaA, 50);
-//    insbackListaEnteros(listaA, 120);
-//    insbackListaEnteros(listaB, 453);
-//    insbackListaEnteros(listaB, 5);
-//    insbackListaEnteros(listaB, 9);
-//    insbackListaEnteros(listaB, 8);
-//    insbackListaEnteros(listaB, 908);
-//
-//    concatenarSecuencia(listaA, listaB, listaConcatenada);
-//
-//    listarEnteros(listaConcatenada);
-
-//    Fin bloque de pruebas para invertirLista()
-
-//    Comienzo bloque de pruebas para crearSecuencia(), mostrarSecuencia()
-
-//    Secuencia secuenciaB;
-//    string stringAux1;
-//
-//    crearString(stringAux1);
-//    cargarString(stringAux1);
-//    printString(stringAux1);
-//    crearSecuencia(secuenciaB, stringAux1);
-//
-//    mostrarSecuencia(secuenciaB);
-
-//    Fin bloque de pruebas para crearSecuencia(), mostrarSecuencia()
-
-//    Comienzo bloque de pruebas para stringMenor()
-
-//    string stringA;
-//    string stringB;
-//
-//    crearString(stringA);
-//    crearString(stringB);
-//    cargarString(stringA);
-//    cargarString(stringB);
-//    printString(stringA);
-//    printString(stringB);
-//
-//    if (stringMenor(stringA, stringB)) {
-//        printf("El string A es menor.");
-//    } else {
-//        printf("El string B es menor.");
-//    }
-
-//    Fin bloque de pruebas para stringMenor()
-
-//    Comienzo bloque de pruebas para insertarSecuencia(), listarSecuencias()
-
-//    ABBSecuencias abbSecuencias;
-//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
-//    string stringAux1, stringAux2, stringAux3, stringAux4;
-//
-//    crearString(stringAux1);
-//    cargarString(stringAux1);
-//    crearString(stringAux2);
-//    cargarString(stringAux2);
-//    crearString(stringAux3);
-//    cargarString(stringAux3);
-//    crearString(stringAux4);
-//    cargarString(stringAux4);
-//    crearSecuencia(secuenciaA, stringAux1);
-//    crearSecuencia(secuenciaB, stringAux2);
-//    crearSecuencia(secuenciaC, stringAux3);
-//    crearSecuencia(secuenciaD, stringAux4);
-//
-//    crearArbol(abbSecuencias);
-//
-//    insertarSecuencia(abbSecuencias, secuenciaD);
-//    insertarSecuencia(abbSecuencias, secuenciaA);
-//    insertarSecuencia(abbSecuencias, secuenciaC);
-//    insertarSecuencia(abbSecuencias, secuenciaB);
-//    listarSecuencias(abbSecuencias);
-
-//    Fin bloque de pruebas para insertarSecuencia(), listarSecuencias()
-
-//    Comienzo bloque de pruebas para existeSecuencia()
-
-//    ABBSecuencias abbSecuencias;
-//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
-//    string stringAux1, stringAux2, stringAux3, stringAux4, stringBusqueda;
-//
-//    crearString(stringBusqueda);
-//    cargarString(stringBusqueda);
-//
-//    crearString(stringAux1);
-//    cargarString(stringAux1);
-//    crearString(stringAux2);
-//    cargarString(stringAux2);
-//    crearString(stringAux3);
-//    cargarString(stringAux3);
-//    crearString(stringAux4);
-//    cargarString(stringAux4);
-//    crearSecuencia(secuenciaA, stringAux1);
-//    crearSecuencia(secuenciaB, stringAux2);
-//    crearSecuencia(secuenciaC, stringAux3);
-//    crearSecuencia(secuenciaD, stringAux4);
-//
-//    crearArbol(abbSecuencias);
-//
-//    insertarSecuencia(abbSecuencias, secuenciaD);
-//    insertarSecuencia(abbSecuencias, secuenciaA);
-//    insertarSecuencia(abbSecuencias, secuenciaC);
-//    insertarSecuencia(abbSecuencias, secuenciaB);
-//
-//    listarSecuencias(abbSecuencias);
-//
-//    if (existeSecuencia(abbSecuencias, stringBusqueda)) {
-//        printf("La secuencia existe en el arbol.");
-//    } else {
-//        printf("La secuencia no existe en el arbol.");
-//    }
-
-//    Fin bloque de pruebas para existeSecuencia()
-
-//    Comienzo bloque de pruebas para buscarSecuenciaPorIdentificador()
-
-//    ABBSecuencias abbSecuencias;
-//    Secuencia secuenciaA, secuenciaB, secuenciaC, secuenciaD;
-//    string stringAux1, stringAux2, stringAux3, stringAux4, stringBusqueda;
-//    ListaEnteros listaEnteros1;
-//    crearListaEnteros(listaEnteros1);
-//
-//    crearString(stringBusqueda);
-//    cargarString(stringBusqueda);
-//
-//    crearString(stringAux1);
-//    cargarString(stringAux1);
-//    crearString(stringAux2);
-//    cargarString(stringAux2);
-//    crearString(stringAux3);
-//    cargarString(stringAux3);
-//    crearString(stringAux4);
-//    cargarString(stringAux4);
-//    crearSecuencia(secuenciaA, stringAux1);
-//    crearSecuencia(secuenciaB, stringAux2);
-//    crearSecuencia(secuenciaC, stringAux3);
-//    crearSecuencia(secuenciaD, stringAux4);
-//
-//    crearArbol(abbSecuencias);
-//
-//    insbackListaEnteros(listaEnteros1, 1);
-//    insbackListaEnteros(listaEnteros1, 13);
-//    insbackListaEnteros(listaEnteros1, 2);
-//    insbackListaEnteros(listaEnteros1, 54);
-//    insbackListaEnteros(listaEnteros1, 90);
-//
-//    secuenciaA.listaEnteros1 = listaEnteros1;
-//
-//    insertarSecuencia(abbSecuencias, secuenciaD);
-//    insertarSecuencia(abbSecuencias, secuenciaA);
-//    insertarSecuencia(abbSecuencias, secuenciaC);
-//    insertarSecuencia(abbSecuencias, secuenciaB);
-//
-//    Secuencia secuenciaAux1 = buscarSecuenciaPorIdentificador(abbSecuencias, stringBusqueda);
-//
-//    mostrarSecuencia(secuenciaAux1);
-
-//    Fin bloque de pruebas para buscarSecuenciaPorIdentificador()
-
+        }
+    } while (comando != EXIT);
 }

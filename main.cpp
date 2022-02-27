@@ -52,9 +52,9 @@ int main() {
                         obtenerElementoListaPorIndice(listaStrings, 1, stringAux1);
                         obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
 
-                        secuenciaAux = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux1);
-                        insbackListaEnteros(secuenciaAux.listaEnteros, (int)stringAux2);
-                        mostrarSecuencia(secuenciaAux);
+                        Secuencia *secuenciaPuntero = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux1);
+                        insbackListaEnteros(secuenciaPuntero->listaEnteros, (int)stringAux2);
+                        mostrarSecuencia(*secuenciaPuntero);
                     }
                 }
             }

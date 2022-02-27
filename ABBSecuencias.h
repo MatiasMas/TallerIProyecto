@@ -36,7 +36,7 @@ boolean existeSecuencia(ABBSecuencias abbSecuencias, string identificador);
 void listarSecuencias(ABBSecuencias abbSecuencias);
 
 // Retorna la secuencia según el identificador pasado por parámetro, Precondición: Secuencia debe existir
-Secuencia buscarSecuenciaPorIdentificador(ABBSecuencias abbSecuencias, string identificador);
+Secuencia *buscarSecuenciaPorIdentificador(ABBSecuencias abbSecuencias, string identificador);
 
 //Recorre el árbol destruyendo las hojas en memoria y se destruye el árbol en sí
 void destruirArbol(ABBSecuencias &abbSecuencias);

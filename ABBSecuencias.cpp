@@ -64,11 +64,11 @@ boolean existeSecuencia(ABBSecuencias abbSecuencias, string identificador) {
     return encontrado;
 }
 
-Secuencia buscarSecuenciaPorIdentificador(ABBSecuencias abbSecuencias, string identificador) {
+Secuencia *buscarSecuenciaPorIdentificador(ABBSecuencias abbSecuencias, string identificador) {
 
     while (abbSecuencias != NULL) {
         if (stringIguales(abbSecuencias->info.identificador, identificador)) {
-            return abbSecuencias->info;
+            return &abbSecuencias->info;
         } else {
             if (stringMenor(abbSecuencias->info.identificador, identificador)) {
                 abbSecuencias = abbSecuencias->hDer;
@@ -78,7 +78,7 @@ Secuencia buscarSecuenciaPorIdentificador(ABBSecuencias abbSecuencias, string id
         }
     }
 
-    return abbSecuencias->info;
+    return &abbSecuencias->info;
 }
 
 void destruirArbol(ABBSecuencias &abbSecuencias) {

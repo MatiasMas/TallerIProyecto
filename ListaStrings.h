@@ -25,4 +25,7 @@ int largoLista(ListaStrings listaStrings);
 //Inserta nuevo string en la lista de strings pasada
 void insbackListaStrings(ListaStrings &listaStrings, string s);
 
+//Destruye la lista de strings, destruyendo uno a uno los strings que la componen
+void destruirListaStrings(ListaStrings &listaStrings);
+
 #endif // LISTASTRINGS_H_INCLUDED

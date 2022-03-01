@@ -1,7 +1,16 @@
 #include "Secuencia.h"
 
 boolean existeArchivo(string nombreArchivo) {
-    return TRUE;
+    boolean existeArchivo = TRUE;
+
+    FILE *f = fopen(nombreArchivo, "rb");
+    if (f == NULL) {
+        existeArchivo = FALSE;
+    } else {
+        fclose(f);
+    }
+
+    return existeArchivo;
 }
 
 void crearSecuencia(Secuencia &secuencia, string identificador, ListaEnteros listaEnteros) {
@@ -18,19 +27,19 @@ void mostrarSecuencia(Secuencia secuencia) {
 }
 
 void bajarSecuencia(Secuencia secuencia, string nombreArchivo) {
-    FILE *f = fopen (nombreArchivo, "wb");
+    FILE *f = fopen(nombreArchivo, "wb");
 
     bajarListaEnteros(secuencia.listaEnteros, f);
 
-    fclose (f);
+    fclose(f);
 }
 
 void levantarSecuencia(Secuencia &secuencia, string nombreArchivo) {
-    FILE *f = fopen (nombreArchivo, "rb");
+    FILE *f = fopen(nombreArchivo, "rb");
 
     levantarListaEnteros(secuencia.listaEnteros, f);
 
-    fclose (f);
+    fclose(f);
 }
 
 ListaEnteros getListaEnteros(Secuencia secuencia) {

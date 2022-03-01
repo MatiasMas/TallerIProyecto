@@ -83,3 +83,16 @@ void insbackListaStrings(ListaStrings &listaStrings, string s) {
         aux->sig = nuevo;
     }
 }
+
+void destruirListaStrings(ListaStrings &listaStrings) {
+    ListaStrings nodoActual = listaStrings ;
+    ListaStrings siguiente = NULL;
+
+    while (nodoActual != NULL) {
+        siguiente = nodoActual->sig;
+        delete nodoActual;
+        nodoActual = siguiente;
+    }
+
+    listaStrings = NULL;
+}

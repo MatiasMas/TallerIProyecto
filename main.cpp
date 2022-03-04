@@ -23,7 +23,8 @@ int main() {
         secuenciaPuntero2 = NULL;
         secuenciaPuntero3 = NULL;
 
-        printf("Ingrese un comando con sus respectivos parametros en caso de necesitarlos.\n");
+        printf("Ingrese un comando con sus respectivos parametros en caso de necesitarlos:\n");
+        printf("\n");
         fflush(stdin);
         cargarString(stringAux1);
 
@@ -39,7 +40,9 @@ int main() {
                     obtenerElementoListaPorIndice(listaStrings, 1, stringAux1);
                     crearSecuencia(secuenciaAux, stringAux1, secuenciaAux.listaEnteros);
                     insertarSecuencia(abbSecuencias, secuenciaAux);
+                    printf("\n");
                     mostrarSecuencia(secuenciaAux);
+                    printf("\n");
                 }
 
             } else if (stringIguales(stringAux1, "insback")) {
@@ -51,12 +54,16 @@ int main() {
                     secuenciaPuntero = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux1);
 
                     insbackListaEnteros(secuenciaPuntero->listaEnteros, parseInt(stringAux2));
+                    printf("\n");
                     mostrarSecuencia(*secuenciaPuntero);
+                    printf("\n");
                 }
             } else if (stringIguales(stringAux1, "show")) {
                 comando = SHOW;
                 if (validarComando(comando, listaStrings, abbSecuencias)) {
+                    printf("\n");
                     listarSecuencias(abbSecuencias);
+                    printf("\n");
                 }
             } else if (stringIguales(stringAux1, "sum")) {
                 comando = SUM;
@@ -66,6 +73,7 @@ int main() {
 
                     int sumaEnteros = sumarListaEnteros(secuenciaPuntero->listaEnteros);
                     printf("\nLa suma de los elementos contenidos dentro de la secuencia es: %i.\n", sumaEnteros);
+                    printf("\n");
                 }
             } else if (stringIguales(stringAux1, "concat")) {
                 comando = CONCAT;
@@ -78,10 +86,11 @@ int main() {
                     obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
                     secuenciaPuntero3 = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux2);
 
-                    concatenarSecuencia(secuenciaPuntero2->listaEnteros, secuenciaPuntero3->listaEnteros,
-                                        secuenciaAux.listaEnteros);
+                    concatenarSecuencia(secuenciaPuntero2->listaEnteros, secuenciaPuntero3->listaEnteros,secuenciaAux.listaEnteros);
                     insertarSecuencia(abbSecuencias, secuenciaAux);
+                    printf("\n");
                     mostrarSecuencia(secuenciaAux);
+                    printf("\n");
                 }
             } else if (stringIguales(stringAux1, "reverse")) {
                 comando = REVERSE;
@@ -94,7 +103,9 @@ int main() {
 
                     invertirLista(secuenciaPuntero->listaEnteros, secuenciaAux.listaEnteros);
                     insertarSecuencia(abbSecuencias, secuenciaAux);
+                    printf("\n");
                     mostrarSecuencia(secuenciaAux);
+                    printf("\n");
                 }
             } else if (stringIguales(stringAux1, "save")) {
                 comando = SAVE;
@@ -109,7 +120,7 @@ int main() {
                         scanf("%c", &opcionArchivo);
                         if (opcionArchivo == 'S') {
                             bajarSecuencia(*secuenciaPuntero, stringAux2);
-                            printf("La secuencia fue guardada en archivo.");
+                            printf("\nLa secuencia fue guardada en archivo.\n");
                         } else if (opcionArchivo == 'N') {
                             printf("\nLa secuencia no sera guardada, vuelva a intentar si asi lo desea.\n");
                         } else {
@@ -117,7 +128,7 @@ int main() {
                         }
                     } else {
                         bajarSecuencia(*secuenciaPuntero, stringAux2);
-                        printf("La secuencia fue guardada en archivo.");
+                        printf("\nLa secuencia fue guardada en archivo.\n");
                     }
                 }
             } else if (stringIguales(stringAux1, "load")) {
@@ -139,10 +150,10 @@ int main() {
                     destruirString(stringAux1);
                     destruirString(stringAux2);
                     destruirSecuencia(secuenciaAux);
-                    destruirSecuencia(*secuenciaPuntero);
-                    destruirSecuencia(*secuenciaPuntero2);
-                    destruirSecuencia(*secuenciaPuntero3);
                 }
+            } else {
+                printf("\nEl comando ingresado no es valido.\n");
+                printf("\n");
             }
         }
     } while (comando != EXIT);

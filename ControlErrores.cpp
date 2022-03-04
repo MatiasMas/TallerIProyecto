@@ -40,16 +40,16 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
                     obtenerElementoListaPorIndice(listaStrings, 2, stringAux);
                     if (esAlfabetico(stringAux)) {
                         valido = FALSE;
-                        printf("El elemento a ingresar en la secuencia debe ser un número natural.");
+                        printf("\nEl elemento a ingresar en la secuencia debe ser un numero natural.\n");
                     } else {
                         if (!esNumeroNatural(stringAux)) {
                             valido = FALSE;
-                            printf("El elemento a ingresar en la secuencia debe ser un número natural.");
+                            printf("\nEl elemento a ingresar en la secuencia debe ser un numero natural.\n");
                         } else {
                             obtenerElementoListaPorIndice(listaStrings, 1, stringAux);
                             if (!existeSecuencia(abbSecuencias, stringAux)) {
                                 valido = FALSE;
-                                printf("No existe una secuencia con el identificador ingresado.");
+                                printf("\nNo existe una secuencia con el identificador ingresado.\n");
                             } else {
                                 valido = TRUE;
                             }
@@ -65,7 +65,7 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
             } else {
                 if (esVacio(abbSecuencias)) {
                     valido = FALSE;
-                    printf("No existen secuencias.");
+                    printf("\nNo existen secuencias.\n");
                 } else {
                     valido = TRUE;
                 }
@@ -79,11 +79,11 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
             } else {
                 obtenerElementoListaPorIndice(listaStrings, 1, stringAux);
                 if (!esAlfabetico(stringAux)) {
-                    printf("El identificador debe ser puramente alfabetico.");
+                    printf("\nEl identificador debe ser puramente alfabetico.\n");
                 } else {
                     if (!existeSecuencia(abbSecuencias, stringAux)) {
                         valido = FALSE;
-                        printf("No existe una secuencia con el identificador ingresado.");
+                        printf("\nNo existe una secuencia con el identificador ingresado.\n");
                     } else {
                         valido = TRUE;
                     }
@@ -99,17 +99,17 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
                 obtenerElementoListaPorIndice(listaStrings, 1, stringAux);
                 obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
                 obtenerElementoListaPorIndice(listaStrings, 3, stringAux3);
-                if (!esAlfabetico(stringAux) && !esAlfabetico(stringAux2) && !esAlfabetico(stringAux3)) {
+                if (!esAlfabetico(stringAux) || !esAlfabetico(stringAux2) || !esAlfabetico(stringAux3)) {
                     valido = FALSE;
-                    printf("Los identificadores deben ser puramente alfabeticos.");
+                    printf("\nLos identificadores deben ser puramente alfabeticos.\n");
                 } else {
                     if (!existeSecuencia(abbSecuencias, stringAux) || !existeSecuencia(abbSecuencias, stringAux2)) {
                         valido = FALSE;
-                        printf("Al menos una de las secuencias no existe segun el identificador dado.");
+                        printf("\nAl menos una de las secuencias no existe segun el identificador dado.\n");
                     } else {
                         if (existeSecuencia(abbSecuencias, stringAux3)) {
                             valido = FALSE;
-                            printf("La secuencia a concatenar ya existe.");
+                            printf("\nLa secuencia a concatenar ya existe.\n");
                         } else {
                             valido = TRUE;
                         }
@@ -126,17 +126,23 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
                 obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
                 if (!esAlfabetico(stringAux) || !esAlfabetico(stringAux2)) {
                     valido = FALSE;
-                    printf("Los identificadores deben ser puramente alfabeticos.");
+                    printf("\nLos identificadores deben ser puramente alfabeticos.\n");
                 } else {
                     if (!existeSecuencia(abbSecuencias, stringAux)) {
                         valido = FALSE;
-                        printf("No existe una secuencia con el identificador ingresado.");
+                        printf("\nNo existe una secuencia con el identificador ingresado.\n");
                     } else {
                         if (existeSecuencia(abbSecuencias, stringAux2)) {
                             valido = FALSE;
-                            printf("Una secuencia con ese nombre ya existe.");
+                            printf("\nUna secuencia con ese nombre ya existe.\n");
                         } else {
-                            valido = TRUE;
+                            Secuencia *secuenciaAux = buscarSecuenciaPorIdentificador(abbSecuencias, stringAux);
+                            if (esListaEnterosVacia(secuenciaAux->listaEnteros)) {
+                                valido = FALSE;
+                                printf("\nLa secuencia a revertir no posee elementos dentro.\n");
+                            } else {
+                                valido = TRUE;
+                            }
                         }
                     }
                 }
@@ -150,17 +156,17 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
             } else {
                 obtenerElementoListaPorIndice(listaStrings, 1, stringAux);
                 obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
-                if (!esAlfabetico(stringAux) && !nombreArchivoValido(stringAux2)) {
+                if (!esAlfabetico(stringAux) || !nombreArchivoValido(stringAux2)) {
                     valido = FALSE;
-                    printf("Los identificadores deben ser puramente alfabeticos.");
+                    printf("\nLos identificadores deben ser puramente alfabeticos.\n");
                 } else {
                     if (!existeSecuencia(abbSecuencias, stringAux)) {
                         valido = FALSE;
-                        printf("No existe una secuencia con el identificador ingresado.");
+                        printf("\nNo existe una secuencia con el identificador ingresado.\n");
                     } else {
                         if (!extensionArchivoValido(stringAux2)) {
                             valido = FALSE;
-                            printf("La extensión del archivo es invalida.");
+                            printf("\nLa extension del archivo es invalida.\n");
                         } else {
                             valido = TRUE;
                         }
@@ -176,21 +182,21 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
             } else {
                 obtenerElementoListaPorIndice(listaStrings, 1, stringAux);
                 obtenerElementoListaPorIndice(listaStrings, 2, stringAux2);
-                if (!esAlfabetico(stringAux2) && !nombreArchivoValido(stringAux)) {
+                if (!esAlfabetico(stringAux2) || !nombreArchivoValido(stringAux)) {
                     valido = FALSE;
-                    printf("Los identificadores deben ser puramente alfabeticos.");
+                    printf("\nLos identificadores deben ser puramente alfabeticos.\n");
                 } else {
                     if (existeSecuencia(abbSecuencias, stringAux2)) {
                         valido = FALSE;
-                        printf("Una secuencia con ese nombre ya existe.");
+                        printf("\nUna secuencia con ese nombre ya existe.\n");
                     } else {
                         if (!extensionArchivoValido(stringAux)) {
                             valido = FALSE;
-                            printf("La extensión del archivo es invalida.");
+                            printf("\nLa extension del archivo es invalida.\n");
                         } else {
                             if (!existeArchivo(stringAux)) {
                                 valido = FALSE;
-                                printf("El archivo con ese nombre no existe.");
+                                printf("\nEl archivo con ese nombre no existe.\n");
                             } else {
                                 valido = TRUE;
                             }
@@ -204,6 +210,8 @@ boolean validarComando(Comando comando, ListaStrings listaStrings, ABBSecuencias
             if (largoLista(listaStrings) != 1) {
                 valido = FALSE;
                 printf("\nLa cantidad de parametros es incorrecta.\n");
+            } else {
+                valido = TRUE;
             }
 
             break;

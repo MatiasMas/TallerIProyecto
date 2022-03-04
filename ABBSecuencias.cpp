@@ -85,10 +85,10 @@ void destruirArbol(ABBSecuencias &abbSecuencias) {
     if (abbSecuencias != NULL){
         destruirArbol(abbSecuencias->hIzq);
         destruirArbol(abbSecuencias->hDer);
-    }
 
-    destruirSecuencia(abbSecuencias->info);
-    delete abbSecuencias;
-    abbSecuencias = NULL;
+        destruirSecuencia(abbSecuencias->info);
+        delete abbSecuencias;
+        abbSecuencias = NULL;
+    }
 }
 

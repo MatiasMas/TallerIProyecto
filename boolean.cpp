@@ -2,7 +2,7 @@
 
 void cargarBoolean(boolean &b) {
     char c;
-    printf("Ingrese T para TRUE o F para FALSE\n");
+    printf("\nIngrese T para TRUE o F para FALSE\n");
     scanf("%c", &c);
     if (c == 'T')
         b = TRUE;
@@ -13,7 +13,7 @@ void cargarBoolean(boolean &b) {
 
 void mostrarBoolean(boolean b) {
     if (b == TRUE)
-        printf("TRUE");
+        printf("\nTRUE\n");
     if (b == FALSE)
-        printf("FALSE");
+        printf("\nFALSE\n");
 }

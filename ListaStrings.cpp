@@ -15,7 +15,7 @@ void obtenerElementoListaPorIndice(ListaStrings listaStrings, int index, string 
 
         stringAux = listaStrings->info;
     } else {
-        printf("El indice esta fuera de rango.");
+        printf("\nEl indice esta fuera de rango.\n");
     }
 }
 
@@ -51,7 +51,9 @@ ListaStrings dividirString(string s) {
     }
 
     palabraAux[j] = '\0';
-    insbackListaStrings(listaAux, palabraAux);
+    if (stringLargo(palabraAux) > 0){
+        insbackListaStrings(listaAux, palabraAux);
+    }
 
     return listaAux;
 }

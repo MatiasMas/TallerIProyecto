@@ -111,7 +111,7 @@ void listarEnteros(ListaEnteros listaEnteros) {
     while (listaEnteros != NULL) {
         printf("%i", listaEnteros->info);
         if (listaEnteros->sig != NULL) {
-            printf(", ");
+            printf(" ");
         }
         listaEnteros = listaEnteros->sig;
     }

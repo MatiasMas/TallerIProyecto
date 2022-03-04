@@ -23,6 +23,7 @@ void crearSecuencia(Secuencia &secuencia, string identificador, ListaEnteros lis
 
 void mostrarSecuencia(Secuencia secuencia) {
     printString(secuencia.identificador);
+    printf("= ");
     listarEnteros(secuencia.listaEnteros);
 }
 
